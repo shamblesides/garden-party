@@ -16,7 +16,7 @@ socketio(server, { serveClient: false })
 
 let listener = server.listen(config.get('port'), (err) => {
     if (err) logger.error(err);
-    else logger.info('RPNow API: ready.');
+    else logger.info('Ready!');
 });
 
 module.exports.stop = function stop(callback = noop) {
@@ -31,7 +31,7 @@ module.exports.stop = function stop(callback = noop) {
             return callback(err);
         }
         listener = null;
-        logger.notice('RPNow API: Stopped successfully.');
+        logger.notice('Stopped successfully.');
         callback(null);
     });
 };
@@ -39,6 +39,6 @@ module.exports.stop = function stop(callback = noop) {
 process.on('SIGTERM', ()=> onKill('SIGTERM') ); //kill (terminate)
 process.on('SIGINT', ()=> onKill('SIGINT') ); //Ctrl+C (interrupt)
 function onKill(reason = 'No reason given') {
-    logger.notice(`RPNow API: Attempting graceful shutdown: ${reason}`);
+    logger.notice(`Attempting graceful shutdown: ${reason}`);
     stop();
 }
