@@ -11,8 +11,7 @@ logger.debug('Starting garden party server...');
 let app = express();
 let server = http.createServer(app);
 app.use('/', web);
-socketio(server, { serveClient: false })
-    .on('connection', api);
+socketio(server).on('connection', api);
 
 let listener = server.listen(config.get('port'), (err) => {
     if (err) logger.error(err);

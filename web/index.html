@@ -1,1 +1,17 @@
-<html><body>Garden Party Web Site</body></html>
+<!doctype html>
+<html style="height:100%;overflow:hidden">
+    <head>
+        <meta charset="utf8">
+        <title>Garden Party</title>
+    </head>
+    <body style="height:100%;margin:0">
+        <canvas style="width:100%; height:100%;"></canvas>
+    </body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        socket.on('welcome', function(name) {
+            alert('Welcome ' + name + '!');
+        });
+    </script>
+</html>

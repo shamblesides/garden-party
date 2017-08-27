@@ -1,5 +1,6 @@
 const logger = require('./logger');
 const config = require('./config');
+const name = require('./name');
 
 const safecall = function(callback) {
     if (typeof callback !== 'function') return (function(){});
@@ -13,6 +14,9 @@ const safecall = function(callback) {
 
 module.exports = function onConnection(socket) {
     let query = socket.handshake.query;
+    let farmerName = name();
+    socket.emit('welcome', farmerName);
+    console.log(farmerName, 'has joined');
 
     socket.use((packet, next) => {
         // logging
