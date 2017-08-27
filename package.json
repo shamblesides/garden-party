@@ -1,0 +1,7 @@
+{
+  "name": "garden-party",
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  }
+}
